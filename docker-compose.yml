@@ -1,0 +1,45 @@
+services:
+  php-apache:
+    build:
+      context: ./src
+    container_name: blog_php
+    volumes:
+      - ./src:/var/www/html
+      - ./assets:/var/www/html/assets
+    ports:
+      - "8080:80"
+    networks:
+      - blog-network
+
+  db:
+    image: mysql:8.0
+    container_name: blog_db
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: blog
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db_data:/var/lib/mysql
+    networks:
+      - blog-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    platform: linux/amd64
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: admin
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    networks:
+      - blog-network
+
+networks:
+  blog-network:
+    driver: bridge
