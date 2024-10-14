@@ -1,0 +1,148 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0; /* The background color for left and right sides */
+}
+
+body {
+    font-family: 'Golos Text', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wrapper for centering content */
+.wrapper {
+    max-width: 900px; /* Adjust this value for the width of the main content */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white; /* White background for the centered area */
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for separation */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Main content should take up remaining space */
+main {
+    flex-grow: 1; /* Makes sure the main content grows and pushes footer down */
+}
+
+/* Header */
+.header {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Header main section */
+.header-main {
+    background-color: white;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #000;
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.8rem;
+}
+
+/* Navigation Menu */
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.nav-item a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    background-color: white; /* Matches header background */
+    border-top: 1px solid #ccc;
+    margin-top: auto; /* Makes footer stick to the bottom */
+}
+
+.footer-middle {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+.footer .social-icons {
+    padding: 0;
+}
+
+.footer .social-icons a {
+    color: #000;
+    font-size: 16px;
+    padding: 0 8px;
+    text-decoration: none;
+}
+
+.footer .social-icons a:hover {
+    color: #007bff;
+}
+
+.footer-bottom {
+    padding: 10px 0;
+    text-align: left;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Courier Prime", monospace;
+    margin: 0;
+}
+
+p, li {
+    font-family: "Golos Text", sans-serif;
+    font-weight: 400;
+}
+
+strong, b {
+    font-family: "Golos Text", sans-serif;
+    font-weight: 700;
+}
+
+.emphasize {
+    font-family: "Courier Prime", monospace;
+    font-style: italic;
+}
+
+/* Utility Classes */
+.mt-auto {
+    margin-top: auto;
+}
