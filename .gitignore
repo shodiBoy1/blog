@@ -1,0 +1,13 @@
+# Ignore database data
+db_data/
+
+# Ignore sensitive key files
+*.pem
+
+# Ignore node_modules and vendor
+node_modules/
+vendor/
+
+# Ignore other system files
+.DS_Store
+.env
