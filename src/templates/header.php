@@ -28,7 +28,7 @@
             <ul class="nav-list">
                 <li class="nav-item"><a href="/about">ABOUT</a></li>
                 <li class="nav-item"><a href="/blog">BLOG</a></li>
-                <li class="nav-item"><a href="/github">GITHUB</a></li>
+                <li class="nav-item"><a href="https://github.com/shodiBoy1">GITHUB</a></li>
             </ul>
         </nav>
     </div>

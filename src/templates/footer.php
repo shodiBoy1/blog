@@ -2,9 +2,9 @@
 <footer class="footer">
     <p>&copy; <?php echo date('Y'); ?> Your Blog. All Rights Reserved.</p>
     <div class="social-icons">
-        <a href="#"><i class="ri-instagram-fill"></i></a>
-        <a href="#"><i class="ri-facebook-fill"></i></a>
-        <a href="#"><i class="ri-twitter-fill"></i></a>
+        <a href="https://www.instagram.com/sbrvsh1/"><i class="ri-instagram-fill"></i></a>
+        <a href="https://x.com/"><i class="ri-twitter-x-fill"></i></a>
+        <a href="https://github.com/shodiBoy1"><i class="ri-github-fill"></i></a>
     </div>
 </footer>
 
