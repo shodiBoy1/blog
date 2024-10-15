@@ -74,6 +74,15 @@ main {
     text-decoration: underline;
 }
 
+/* About Page - Styled like blog post content */
+#about-page {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh; /* Make sure it fills the entire height of the screen */
+}
+
 /* Blog Post List */
 .posts-list {
     display: grid;
