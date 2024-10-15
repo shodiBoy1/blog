@@ -1,49 +1,45 @@
 <?php
-require_once __DIR__ . '/includes/global.php';
+require_once ('includes/global.php');
+// Include the header template
+include '../src/templates/header.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLOG.</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
-    <!-- Bootstrap and RemixIcon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
-    <!-- Fancybox -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="/assets/css/styles.css">
-</head>
-<body>
+<!-- HERO SECTION WITH TYPING EFFECT AND ABOUT ME SECTION -->
+<section id="hero" class="min-vh-100 d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <!-- Left Column: About Me Section with Photo and Subscribe Form -->
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+                <img src="/assets/images/profile-pic.png" class="img-fluid rounded-photo" alt="About Me Photo">
+                <div id="about-text" class="mt-4 text-center">
+                    <h2>About Me</h2>
+                    <p>Hi, I'm Shodee, a computer science student and aspiring software developer. I'm passionate about learning and improving my coding skills every day.</p>
+                    <a href="/about" class="btn btn-dark">Learn More About Me</a>
+                </div>
 
-<div class="wrapper d-flex flex-column min-vh-100">
+                <!-- Subscribe Form placed after About Me section -->
+                <div id="subscribe" class="mt-5 text-center">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <p>Get the latest updates directly in your inbox.</p>
+                    <form class="rounded-form d-inline-flex">
+                        <input type="email" class="form-control rounded-input" placeholder="Enter your email">
+                        <button type="submit" class="btn btn-dark rounded-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
 
-    <!-- Include the header -->
-    <?php include('templates/header.php'); ?>
-
-    <!-- MAIN CONTENT -->
-    <main class="flex-grow-1 py-5">
-        <div class="container">
-            <h1>Welcome to my Personal Blog</h1>
-            <p>This is your main content area. Add your content here...</p>
+            <!-- Right Column: Welcome Text with Typing Effect -->
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div id="welcome-text">
+                    <h1 id="typed-text" class="typed"></h1>
+                </div>
+            </div>
         </div>
-    </main>
+    </div>
+</section>
 
-    <!-- Include the footer -->
-    <?php include('templates/footer.php'); ?>
-
-</div>
-
-<!-- External Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-<script src="/assets/js/main.js"></script>
-
-</body>
-</html>
+<!-- FOOTER -->
+<?php
+// Include the footer template
+include '../src/templates/footer.php';
+?>

@@ -1,18 +1,17 @@
-<footer class="footer bg-light mt-auto py-3">
-    <div class="footer-middle py-3 border-bottom">
-        <div class="wrapper">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-auto">
-                    <p class="mb-0">© <?php echo date('Y'); ?> Copyright ShodeeBoy. All Rights Reserved</p>
-                </div>
-                <div class="col-auto">
-                    <ul class="social-icons list-inline mb-0">
-                        <li class="list-inline-item"><a href="#"><i class="ri-tumblr-fill"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="ri-instagram-fill"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="ri-facebook-fill"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<!-- /src/templates/footer.php -->
+<footer class="footer">
+    <p>&copy; <?php echo date('Y'); ?> Your Blog. All Rights Reserved.</p>
+    <div class="social-icons">
+        <a href="#"><i class="ri-instagram-fill"></i></a>
+        <a href="#"><i class="ri-facebook-fill"></i></a>
+        <a href="#"><i class="ri-twitter-fill"></i></a>
     </div>
 </footer>
+
+<!-- Load JavaScript Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>
