@@ -19,12 +19,13 @@ include '../src/templates/header.php';
 
                 <!-- Subscribe Form placed after About Me section -->
                 <div id="subscribe" class="mt-5 text-center">
-                    <h3>Subscribe to Our Newsletter</h3>
+                    <h3>Subscribe to My Newsletter</h3>
                     <p>Get the latest updates directly in your inbox.</p>
-                    <form class="rounded-form d-inline-flex">
-                        <input type="email" class="form-control rounded-input" placeholder="Enter your email">
+                    <form id="subscribeForm"  class="rounded-form d-inline-flex">
+                        <input type="email" name="email" class="form-control rounded-input" placeholder="Enter your email" required>
                         <button type="submit" class="btn btn-dark rounded-button">Subscribe</button>
                     </form>
+                    <div id="subscribeMessage" class="mt-3"></div> <!-- Success message will appear here -->
                 </div>
             </div>
 

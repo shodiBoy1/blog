@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php'; // Composer autoload
+require_once __DIR__ . '/../vendor/autoload.php'; // Composer autoload
 $Parsedown = new Parsedown();
 
 // Function to get the full content of the markdown file

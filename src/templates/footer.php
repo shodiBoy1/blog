@@ -1,6 +1,6 @@
 <!-- /src/templates/footer.php -->
 <footer class="footer">
-    <p>&copy; <?php echo date('Y'); ?> Your Blog. All Rights Reserved.</p>
+    <p>&copy; <?php echo date('Y'); ?> SBRVSH. All Rights Reserved.</p>
     <div class="social-icons">
         <a href="https://www.instagram.com/sbrvsh1/"><i class="ri-instagram-fill"></i></a>
         <a href="https://x.com/"><i class="ri-twitter-x-fill"></i></a>

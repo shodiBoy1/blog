@@ -36,3 +36,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const typingInterval = setInterval(type, speed);
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const subscribeForm = document.getElementById("subscribeForm");
+
+    subscribeForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(subscribeForm);
+        const email = formData.get("email");
+
+
+        fetch("/src/subscribe.php", {
+            method: "POST",
+            body: formData,
+        })
+            .then(response => response.text())
+            .then(data => {
+                const subscribeMessage = document.getElementById("subscribeMessage");
+
+                // Display success or error message
+                subscribeMessage.innerHTML = `<p class="text-success">Thank you for subscribing!</p>`;
+            })
+            .catch(error => {
+                const subscribeMessage = document.getElementById("subscribeMessage");
+
+                // Display an error message
+                subscribeMessage.innerHTML = `<p class="text-danger">There was an error. Please try again later.</p>`;
+            });
+    });
+});
+
+

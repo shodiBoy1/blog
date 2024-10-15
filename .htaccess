@@ -8,5 +8,6 @@ RewriteRule ^about/?$ about.php [L]
 
 RewriteRule ^blog/?$ blog.php [L]
 RewriteRule ^blog/([a-zA-Z0-9_-]+)/?$ blog.php?post=$1 [L]
+RewriteRule ^subscribe/?$ subscribe.php [L]
 
 ErrorDocument 404 /404.php

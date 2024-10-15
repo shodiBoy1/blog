@@ -22,7 +22,7 @@
 <header class="header">
     <div class="header-main">
         <div class="logo">
-            <a href="/">BLOG.</a>
+            <a href="/">SBRVSH.</a>
         </div>
         <nav class="nav">
             <ul class="nav-list">
