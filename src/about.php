@@ -13,6 +13,10 @@
         </p>
 
         <p>
+            And by the way, that photo on the left? Yeah, that’s me at Stanford. I didn’t study there, but hey, at least I made it to the campus... for a picture! Consider it my "fake it till you make it" moment.
+        </p>
+
+        <p>
             I’m always open to feedback from more experienced developers, so if you’re reading this and have suggestions or advice, feel free to <a href="mailto:shodeeblog@gmail.com" class="link-dark">email me</a>! I’ll also share my experiences as a student, insights into computer science topics, and the resources that have helped me along the way.
         </p>
 
