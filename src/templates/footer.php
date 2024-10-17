@@ -1,4 +1,3 @@
-<!-- /src/templates/footer.php -->
 <footer class="footer">
     <p>&copy; <?php echo date('Y'); ?> SBRVSH. All Rights Reserved.</p>
     <div class="social-icons">

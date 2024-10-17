@@ -1,8 +1,8 @@
 services:
   php-apache:
     build:
-      context: .  # This is the root context where docker-compose.yml is located
-      dockerfile: .docker/Dockerfile  # Path to your Dockerfile
+      context: .
+      dockerfile: .docker/Dockerfile
     container_name: blog_php
     volumes:
       - ./:/var/www/html:rw
