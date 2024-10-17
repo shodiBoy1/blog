@@ -3,17 +3,25 @@
 <section id="about-page" class="post-content">
     <div class="post-content">
         <h1>About Me</h1>
+
         <p>
-            Hello! My name is Shodee, and I'm a passionate computer science student and an aspiring software developer. I'm constantly learning and improving my coding skills every day. My journey started with a deep curiosity about technology, and now I’m focused on building skills in various programming languages, frameworks, and tools.
+            Hello! I'm <strong>Shodee</strong>, a computer science student and PHP developer on a mission to become a full-stack developer. Like many beginners, I’ve faced countless challenges learning how to build websites by following tutorials that often left me feeling frustrated. Now, I’m here to guide others who are just starting, showing every step—from creating your first folder to deploying your website.
         </p>
+
         <p>
-            I enjoy staying active and balancing my life with a mix of intellectual and physical challenges. On this blog, I’ll be sharing my thoughts, insights, and lessons learned in the tech world, along with personal reflections on how I continuously strive for growth.
+            <strong>Why am I doing this?</strong> I want to help beginners avoid the pitfalls I experienced. I’ll walk you through building simple HTML, CSS, JavaScript, and PHP websites in easy-to-follow, step-by-step guides. Even though I’m still learning myself, I believe that sharing knowledge is the best way to grow.
         </p>
+
         <p>
-            My current focus is on full-stack development, and I'm exploring everything from backend logic to frontend design. The tech world is ever-evolving, and I'm excited to keep learning new things and sharing them here.
+            I’m always open to feedback from more experienced developers, so if you’re reading this and have suggestions or advice, feel free to <a href="mailto:shodeeblog@gmail.com" class="link-dark">email me</a>! I’ll also share my experiences as a student, insights into computer science topics, and the resources that have helped me along the way.
         </p>
+
         <p>
-            Feel free to explore my posts or connect with me on <a href="/github" class="link-dark">GitHub</a> to see what I'm currently working on!
+            Outside of coding, I enjoy staying active by running and swimming, and I try to keep a balance between intellectual challenges and physical activity.
+        </p>
+
+        <p>
+            Feel free to explore my blog or check out what I’m working on over at <a href="https://github.com/shodiBoy1" class="link-dark">GitHub</a>! Let’s learn and grow together.
         </p>
     </div>
 </section>
