@@ -42,7 +42,10 @@ if (isset($_GET['post'])) {
 
     if (file_exists($post_path)) {
         $post_content = get_post_content($post_path);
-        $parsed_content = $Parsedown->text($post_content);
+
+        $post_content_without_metadata = preg_replace('/---(.*?)---/s', '', $post_content);
+
+        $parsed_content = $Parsedown->text($post_content_without_metadata);
 
         require_once 'templates/header.php';
         echo "<div class='post'>";
@@ -59,6 +62,7 @@ if (isset($_GET['post'])) {
 
 $posts = glob($md_dir . "*.md");
 
+// If filtering by tags
 if (isset($_GET['tag'])) {
     $requested_tag = $_GET['tag'];
 
@@ -74,8 +78,6 @@ if (isset($_GET['tag'])) {
     });
 }
 
-
-
 ?>
 
 <link rel="stylesheet" href="/assets/css/styles.css">
@@ -84,31 +86,29 @@ if (isset($_GET['tag'])) {
 
 <div class="posts-list">
     <?php
-    foreach ($posts as $post_path) {
+    if (!isset($_GET['post'])) {
+        foreach ($posts as $post_path) {
+            $post_name = basename($post_path, '.md');
+            $metadata = get_post_metadata($post_path);
 
-        $post_name = basename($post_path, '.md');
+            echo "<div class='post'>";
+            echo "<h2><a href='/blog/{$post_name}'>" . ucfirst(str_replace('_', ' ', $post_name)) . "</a></h2>";
 
-        $metadata = get_post_metadata($post_path);
-
-        echo "<div class='post'>";
-        echo "<h2><a href='/blog/{$post_name}'>" . ucfirst(str_replace('_', ' ', $post_name)) . "</a></h2>";
-
-        if (!empty($metadata['date'])) {
-            echo "<p><strong>published:</strong> " . htmlspecialchars($metadata['date']) . "</p>";
-        }
-
-        if (!empty($metadata['tags'])) {
-            echo "<p><strong></strong> ";
-            foreach ($metadata['tags'] as $tag) {
-                $tag_clean = str_replace('#', '', trim($tag));
-                echo "<a href='/blog?tag=" . urlencode($tag_clean) . "'>" . htmlspecialchars($tag) . "</a> ";
+            if (!empty($metadata['date'])) {
+                echo "<p><strong>Published:</strong> " . htmlspecialchars($metadata['date']) . "</p>";
             }
-            echo "</p>";
+
+            if (!empty($metadata['tags'])) {
+                echo "<p><strong></strong> ";
+                foreach ($metadata['tags'] as $tag) {
+                    $tag_clean = str_replace('#', '', trim($tag));
+                    echo "<a href='/blog?tag=" . urlencode($tag_clean) . "'>" . htmlspecialchars($tag) . "</a> ";
+                }
+                echo "</p>";
+            }
+
+            echo "</div>";
         }
-
-
-
-        echo "</div>";
     }
     ?>
 </div>
