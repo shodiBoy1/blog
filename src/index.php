@@ -10,7 +10,7 @@ include '../src/templates/header.php';
                 <img src="/assets/images/profile-pic.png" class="img-fluid rounded-photo" alt="About Me Photo">
                 <div id="about-text" class="mt-4 text-center">
                     <h2>About Me</h2>
-                    <p>Hi, I'm Shodee, a computer science student and aspiring software developer. I'm passionate about learning and improving my coding skills every day.</p>
+                    <p>Hi, I'm Shodee, a computer science student and aspiring full-stack developer. I'm passionate about learning and improving my coding skills every day.</p>
                     <a href="/about" class="btn btn-dark">Learn More About Me</a>
                 </div>
 

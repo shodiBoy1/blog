@@ -2,6 +2,20 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 $Parsedown = new Parsedown();
 
+// Extend Parsedown to add ID attributes to headings for anchor links
+class ParsedownWithAnchors extends Parsedown
+{
+    protected function blockHeader($Line)
+    {
+        $block = parent::blockHeader($Line);
+        $text = $block['element']['text'];
+        $slug = strtolower(preg_replace('/[^a-z0-9]+/i', '-', trim($text)));
+        $block['element']['attributes'] = ['id' => $slug];
+        return $block;
+    }
+}
+
+$Parsedown = new ParsedownWithAnchors();
 function get_post_content($file_path): string
 {
     return file_get_contents($file_path);
