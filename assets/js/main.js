@@ -6,28 +6,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentIndex = 0;
     let charIndex = 0;
-    const speed = 100; // Typing speed
+    const speed = 100;
     let currentText = '';
-    let displayedText = ''; // Variable to store the text already displayed
+    let displayedText = '';
 
     function type() {
         const typedText = document.getElementById('typed-text');
 
-        // Get the current text being typed
         currentText = welcomeText[currentIndex].substring(0, charIndex);
 
-        // Display previously typed text + currently typing text
         typedText.innerHTML = displayedText + currentText;
 
         charIndex++;
 
-        // When the current text is fully typed
         if (charIndex === welcomeText[currentIndex].length) {
-            displayedText += currentText + '<br>'; // Store the completed text and add line break
+            displayedText += currentText + '<br>';
             currentIndex++;
             charIndex = 0;
 
-            // Stop typing if all messages are complete
             if (currentIndex === welcomeText.length) {
                 clearInterval(typingInterval);
             }
@@ -56,13 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 const subscribeMessage = document.getElementById("subscribeMessage");
 
-                // Display success or error message
                 subscribeMessage.innerHTML = `<p class="text-success">Thank you for subscribing!</p>`;
             })
             .catch(error => {
                 const subscribeMessage = document.getElementById("subscribeMessage");
 
-                // Display an error message
                 subscribeMessage.innerHTML = `<p class="text-danger">There was an error. Please try again later.</p>`;
             });
     });
