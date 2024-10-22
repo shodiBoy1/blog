@@ -143,6 +143,18 @@ This guide documents the creation of my PHP blog over two days, detailing each s
 - Open your footer.php file and add this code into your file:
   ![My Image](/assets/images/footer.png)
 
+#### 3.5 **Main Page**:
+
+- Open your index.php file and write this code:
+  ![My Image](/assets/images/index.png)
+- dont forget to include your profile pic!
+
+ **Go to the SECOND PART and follow next steps**:
+
+-  [**Click here to read the full explanation of the docker-compose code**](/blog/how_i_created_this_blog_PART_II).
+
+
+
 
 
   
