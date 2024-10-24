@@ -1,6 +1,6 @@
 <?php include('templates/header.php'); ?>
 
-<section id="about-page" class="post-content">
+    <div class="post">
     <div class="post-content">
         <h1>About Me</h1>
 
@@ -10,10 +10,6 @@
 
         <p>
             <strong>Why am I doing this?</strong> I want to help beginners avoid the pitfalls I experienced. I’ll walk you through building simple HTML, CSS, JavaScript, and PHP websites in easy-to-follow, step-by-step guides. Even though I’m still learning myself, I believe that sharing knowledge is the best way to grow.
-        </p>
-
-        <p>
-            And by the way, that photo on the left? Yeah, that’s me at Stanford. I didn’t study there, but hey, at least I made it to the campus... for a picture! Consider it my "fake it till you make it" moment.
         </p>
 
         <p>
@@ -28,6 +24,6 @@
             Feel free to explore my blog or check out what I’m working on over at <a href="https://github.com/shodiBoy1" class="link-dark">GitHub</a>! Let’s learn and grow together.
         </p>
     </div>
-</section>
+    </div>
 
 <?php include('templates/footer.php'); ?>

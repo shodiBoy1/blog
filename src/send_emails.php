@@ -10,8 +10,16 @@ $dotenv->load();
 
 $subject = "Bi-Weekly Update from My Blog";
 $bodyTemplate = "Hello,\n\nHere's your bi-weekly update from my blog! Stay tuned for more updates.\n\n";
+$bodyTemplate .= "Check out these new posts:\n%s\n\n";
 $bodyTemplate .= "If you wish to unsubscribe, click the link below:\n%s\n\n";
 $bodyTemplate .= "Best regards,\nShodee";
+
+// Load content links from a file
+$contentLinksFile = __DIR__ . '/content_links.txt';
+$contentLinks = file($contentLinksFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+// Concatenate all content links into a single string
+$contentLinksText = implode("\n", $contentLinks);
 
 $file = __DIR__ . '/subscribers.txt';
 $subscribers = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);  // Get emails and tokens as an array
@@ -36,7 +44,7 @@ try {
 
         $unsubscribeLink = "http://yourdomain.com/unsubscribe.php?token=" . urlencode($token);
 
-        $body = sprintf($bodyTemplate, $unsubscribeLink);
+        $body = sprintf($bodyTemplate, $contentLinksText, $unsubscribeLink);
 
         $mail->addAddress($email);
         $mail->isHTML(false);

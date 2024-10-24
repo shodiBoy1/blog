@@ -57,4 +57,4 @@ tags: #php, #blog
 
 ## Conclusion
 
-The project was completed in two days, focusing on developing a fully functional blog that allows users to read posts and subscribe to updates. This hands-on experience significantly enhanced my understanding of PHP and web development principles.
+The project was completed in two days, focusing on developing a simple fully functional blog that allows users to read posts and subscribe to updates. This hands-on experience significantly enhanced my understanding of PHP and web development principles.

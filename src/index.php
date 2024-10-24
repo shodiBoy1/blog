@@ -1,5 +1,4 @@
 <?php
-require_once ('includes/global.php');
 include '../src/templates/header.php';
 ?>
 
@@ -7,7 +6,7 @@ include '../src/templates/header.php';
     <div class="container">
         <div class="row">
             <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
-                <img src="https://drive.google.com/uc?export=view&id=1LENMW4eTM0Nzjh_31a9i3i6BHySpPmrz" class="img-fluid rounded-photo" alt="About Me Photo">
+                <img src="../assets/images/noun-person-1067045.svg" class="img-fluid rounded-photo" alt="About Me Photo">
                 <div id="about-text" class="mt-4 text-center">
                     <h2>About Me</h2>
                     <p>Hi, I'm Shodee, a computer science student and aspiring full-stack developer. I'm passionate about learning and improving my coding skills every day.</p>
