@@ -14,5 +14,6 @@ RewriteCond %{QUERY_STRING} (^|&)tag=([a-zA-Z0-9_-]+)(&|$)
 RewriteRule ^blog/?$ blog.php [L]
 
 RewriteRule ^subscribe/?$ subscribe.php [L]
+RewriteRule ^unsubscribe/?$ unsubscribe.php [L]
 
 ErrorDocument 404 /404.php
