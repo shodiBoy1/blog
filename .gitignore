@@ -3,4 +3,4 @@ vendor/
 
 
 .env
-./src/subscribers.txt
+src/subscribers.txt/
