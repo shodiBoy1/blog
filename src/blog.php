@@ -67,6 +67,27 @@ function get_comments($post_name): bool|array
     return [];
 }
 
+// Function to handle likes
+function increment_likes($post_name)
+{
+    $file_path = __DIR__ . "/likes/{$post_name}_likes.txt";
+    $likes = 0;
+    if (file_exists($file_path)) {
+        $likes = (int)file_get_contents($file_path);
+    }
+    $likes++;
+    file_put_contents($file_path, $likes);
+    return $likes;
+}
+
+function get_likes($post_name)
+{
+    $file_path = __DIR__ . "/likes/{$post_name}_likes.txt";
+    if (file_exists($file_path)) {
+        return (int)file_get_contents($file_path);
+    }
+    return 0;
+}
 //  comment submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment']) && isset($_POST['post_name'])) {
     $post_name = $_POST['post_name'];
@@ -74,7 +95,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment']) && isset($
     save_comment($post_name, $comment);
     header("Location: /blog/$post_name");
     exit;
+}   elseif (isset($_POST['like']) && isset($_POST['post_name'])) {
+    $post_name = $_POST['post_name'];
+    increment_likes($post_name);
+    header("Location: /blog/$post_name");
+    exit;
 }
+
 
 $md_dir = __DIR__ . '/md/';
 
@@ -112,6 +139,18 @@ if (isset($_GET['post'])) {
         } else {
             echo "<p>No comments yet. Be the first to comment!</p>";
         }
+        echo "</div>";
+
+        // Display likes
+        $likes = get_likes($post_name);
+        echo "<div class='likes-section'>";
+        echo "<form method='POST' action=''>";
+        echo "<input type='hidden' name='post_name' value='" . htmlspecialchars($post_name) . "'>";
+        echo "<button type='submit' name='like' class='heart-button'>";
+        echo "<i class='ri-heart-line'></i>";
+        echo "</button>";
+        echo "<span class='likes-count'>$likes</span>";
+        echo "</form>";
         echo "</div>";
 
         echo "</div>";
