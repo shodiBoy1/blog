@@ -16,6 +16,7 @@ class ParsedownWithAnchors extends Parsedown
 }
 
 $Parsedown = new ParsedownWithAnchors();
+
 function get_post_content($file_path): string
 {
     return file_get_contents($file_path);
@@ -36,9 +37,9 @@ function get_post_metadata($file_path): array
         $lines = explode("\n", trim($matches[1]));
 
         foreach ($lines as $line) {
-            if (strpos($line, 'date:') === 0) {
+            if (str_starts_with($line, 'date:')) {
                 $metadata['date'] = trim(str_replace('date:', '', $line));
-            } elseif (strpos($line, 'tags:') === 0) {
+            } elseif (str_starts_with($line, 'tags:')) {
                 $tags_string = trim(str_replace('tags:', '', $line));
                 $metadata['tags'] = explode(',', $tags_string);
             }
@@ -46,6 +47,33 @@ function get_post_metadata($file_path): array
     }
 
     return $metadata;
+}
+
+// Function to save comments
+function save_comment($post_name, $comment): void
+{
+    $file_path = __DIR__ . "/comments/{$post_name}_comments.txt";
+    $comment_data = htmlspecialchars($comment) . "\n";
+    file_put_contents($file_path, $comment_data, FILE_APPEND);
+}
+
+// Function to fetch comments
+function get_comments($post_name): bool|array
+{
+    $file_path = __DIR__ . "/comments/{$post_name}_comments.txt";
+    if (file_exists($file_path)) {
+        return file($file_path, FILE_IGNORE_NEW_LINES);
+    }
+    return [];
+}
+
+//  comment submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment']) && isset($_POST['post_name'])) {
+    $post_name = $_POST['post_name'];
+    $comment = $_POST['comment'];
+    save_comment($post_name, $comment);
+    header("Location: /blog/$post_name");
+    exit;
 }
 
 $md_dir = __DIR__ . '/md/';
@@ -64,14 +92,35 @@ if (isset($_GET['post'])) {
         require_once 'templates/header.php';
         echo "<div class='post'>";
         echo "<div class='post-content'>" . $parsed_content . "</div>";
+
+        // comment section
+        echo "<div class='comments-section'>";
+        echo "<h3>Comments</h3>";
+        echo "<form method='POST' action=''>";
+        echo "<textarea name='comment' placeholder='Write your comment here...' required></textarea>";
+        echo "<input type='hidden' name='post_name' value='" . htmlspecialchars($post_name) . "'>";
+        echo "<button type='submit'>Submit Comment</button>";
+        echo "</form>";
+
+        $comments = get_comments($post_name);
+        if (!empty($comments)) {
+            echo "<ul class='comments-list'>";
+            foreach ($comments as $comment) {
+                echo "<li>" . htmlspecialchars($comment) . "</li>";
+            }
+            echo "</ul>";
+        } else {
+            echo "<p>No comments yet. Be the first to comment!</p>";
+        }
+        echo "</div>";
+
         echo "</div>";
         require_once 'templates/footer.php';
-        exit;
     } else {
         header("HTTP/1.0 404 Not Found");
         include('404.php');
-        exit;
     }
+    exit;
 }
 
 $posts = glob($md_dir . "*.md");
@@ -91,7 +140,6 @@ if (isset($_GET['tag'])) {
         return false;
     });
 }
-
 ?>
 
 <link rel="stylesheet" href="/assets/css/styles.css">
@@ -106,7 +154,7 @@ if (isset($_GET['tag'])) {
             $metadata = get_post_metadata($post_path);
 
             echo "<div class='post'>";
-            echo "<h2><a href='/blog/{$post_name}'>" . ucfirst(str_replace('_', ' ', $post_name)) . "</a></h2>";
+            echo "<h2><a href='/blog/$post_name'>" . ucfirst(str_replace('_', ' ', $post_name)) . "</a></h2>";
 
             if (!empty($metadata['date'])) {
                 echo "<p><strong>Published:</strong> " . htmlspecialchars($metadata['date']) . "</p>";
